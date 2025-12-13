@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+
+    <!-- Card -->
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_stroke_width">0dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_size_large_title">32sp</dimen>
+    <dimen name="text_size_title">24sp</dimen>
+    <dimen name="text_size_subtitle">18sp</dimen>
+    <dimen name="text_size_body">16sp</dimen>
+    <dimen name="text_size_body_small">14sp</dimen>
+    <dimen name="text_size_caption">12sp</dimen>
+    <dimen name="text_size_tiny">10sp</dimen>
+
+    <!-- Anime Card (Home Screen) -->
+    <dimen name="anime_card_height">280dp</dimen>
+    <dimen name="anime_card_width">0dp</dimen>
+    <dimen name="anime_card_spacing">8dp</dimen>
+    <dimen name="anime_poster_corner_radius">8dp</dimen>
+
+    <!-- Rating Badge -->
+    <dimen name="rating_badge_size">48dp</dimen>
+    <dimen name="rating_badge_corner_radius">24dp</dimen>
+    <dimen name="rating_badge_padding">8dp</dimen>
+
+    <!-- Detail Screen -->
+    <dimen name="detail_hero_height">450dp</dimen>
+    <dimen name="detail_play_button_size">72dp</dimen>
+    <dimen name="detail_content_padding">16dp</dimen>
+
+    <!-- Chip -->
+    <dimen name="chip_corner_radius">16dp</dimen>
+    <dimen name="chip_height">32dp</dimen>
+    <dimen name="chip_horizontal_padding">12dp</dimen>
+
+    <!-- Toolbar -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+</resources>
