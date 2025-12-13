@@ -42,9 +42,9 @@ class AnimeListAdapter(
                 Glide.with(itemView.context)
                     .load(anime.imageUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .placeholder(R.drawable.bg_card)
-                    .error(R.drawable.bg_card)
-                    .into(ivAnimeImage)
+                    .placeholder(R.drawable.ic_play)
+                    .error(R.drawable.ic_play)
+                    .into(binding.ivAnimeImage)
                 
                 root.setOnClickListener {
                     onItemClick(anime)

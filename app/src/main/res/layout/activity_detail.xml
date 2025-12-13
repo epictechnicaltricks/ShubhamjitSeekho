@@ -19,204 +19,150 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Hero Section (Video/Poster) -->
             <FrameLayout
                 android:id="@+id/frameHero"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/detail_hero_height"
+                android:layout_height="300dp"
                 android:background="@color/shimmer_base"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
-                <!-- Poster/Video Player -->
                 <ImageView
-                    android:id="@+id/imageHero"
+                    android:id="@+id/ivAnimeHero"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:contentDescription="@string/app_name"
                     tools:src="@color/shimmer_base" />
 
-                <!-- ExoPlayer View (Will be added programmatically) -->
                 <androidx.media3.ui.PlayerView
                     android:id="@+id/playerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="gone"
-                    app:controller_layout_id="@layout/custom_player_controls"
-                    app:show_buffering="when_playing"
-                    app:use_controller="true" />
+                    android:visibility="gone" />
 
-                <!-- Gradient Overlay -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_gradient_overlay" />
 
-                <!-- Play Button (if trailer available) -->
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fabPlay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_play"
-                    android:contentDescription="@string/play_trailer"
-                    app:backgroundTint="@color/netflix_red"
-                    app:tint="@color/text_primary"
-                    app:fabSize="normal" />
-
             </FrameLayout>
 
-            <!-- Content Section -->
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/contentGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="layoutContent" />
+
             <LinearLayout
                 android:id="@+id/layoutContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/detail_content_padding"
+                android:padding="16dp"
                 app:layout_constraintTop_toBottomOf="@id/frameHero"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
-                <!-- Title -->
                 <TextView
-                    android:id="@+id/textTitle"
+                    android:id="@+id/tvAnimeTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_large_title"
+                    android:textSize="24sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:layout_marginBottom="8dp"
                     tools:text="Attack on Titan" />
 
-                <!-- Info Row (Rating, Episodes, Status) -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/spacing_medium">
+                    android:layout_marginBottom="16dp">
 
-                    <!-- Rating -->
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tvAnimeScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:layout_marginEnd="@dimen/spacing_medium">
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="16dp"
+                        tools:text="⭐ 8.54" />
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_star"
-                            android:layout_marginEnd="4dp" />
-
-                        <TextView
-                            android:id="@+id/textRating"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/text_primary"
-                            android:textSize="@dimen/text_size_body"
-                            android:textStyle="bold"
-                            tools:text="8.54" />
-
-                    </LinearLayout>
-
-                    <!-- Episodes -->
                     <TextView
-                        android:id="@+id/textEpisodes"
+                        android:id="@+id/tvAnimeEpisodes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/text_size_body"
-                        android:layout_marginEnd="@dimen/spacing_medium"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="16dp"
                         tools:text="75 Episodes" />
 
-                    <!-- Status -->
                     <TextView
-                        android:id="@+id/textStatus"
+                        android:id="@+id/tvAnimeStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/success_green"
-                        android:textSize="@dimen/text_size_body"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="Finished Airing" />
 
                 </LinearLayout>
 
-                <!-- Genres -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/genres"
+                    android:text="Genres"
                     android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_subtitle"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/spacing_small" />
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroupGenres"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/spacing_medium"
-                    app:chipSpacing="@dimen/spacing_small" />
-
-                <!-- Synopsis Section -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/synopsis"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_subtitle"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/spacing_small" />
+                    android:layout_marginBottom="8dp" />
 
                 <TextView
-                    android:id="@+id/textSynopsis"
+                    android:id="@+id/tvGenres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/text_size_body"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="16dp"
+                    tools:text="Action • Drama • Fantasy" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Synopsis"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvSynopsis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
                     android:lineSpacingMultiplier="1.4"
                     android:maxLines="4"
                     android:ellipsize="end"
-                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:layout_marginBottom="8dp"
                     tools:text="Several hundred years ago, humans were nearly exterminated by Titans..." />
 
                 <TextView
-                    android:id="@+id/textReadMore"
+                    android:id="@+id/btnReadMore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/read_more"
+                    android:text="Read More"
                     android:textColor="@color/netflix_red"
-                    android:textSize="@dimen/text_size_body"
+                    android:textSize="14sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="@dimen/spacing_large" />
-
-                <!-- Characters Section (if available) -->
-                <TextView
-                    android:id="@+id/textCharactersLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/characters"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_subtitle"
-                    android:textStyle="bold"
-                    android:visibility="gone"
-                    android:layout_marginBottom="@dimen/spacing_small" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewCharacters"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    android:clipToPadding="false"
-                    tools:listitem="@layout/item_character" />
+                    android:layout_marginBottom="24dp" />
 
             </LinearLayout>
 
-            <!-- Loading Progress -->
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
@@ -230,16 +176,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Error loading anime" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Back Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabBack"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_medium"
+        android:layout_margin="16dp"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
         app:backgroundTint="@color/elevated_background"
         app:tint="@color/text_primary"
