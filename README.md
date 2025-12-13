@@ -4,7 +4,6 @@ A modern Android application built with Kotlin that displays top anime using the
 
 ## 📱 Screenshots
 
-> Add screenshots here
 
 ## ✨ Features
 
