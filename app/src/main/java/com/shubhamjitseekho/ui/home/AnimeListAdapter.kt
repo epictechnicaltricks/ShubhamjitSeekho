@@ -29,8 +29,10 @@ class AnimeListAdapter(
     }
     
     class AnimeViewHolder(
+
         private val binding: ItemAnimeCardBinding,
         private val onItemClick: (Anime) -> Unit
+
     ) : RecyclerView.ViewHolder(binding.root) {
         
         fun bind(anime: Anime) {
