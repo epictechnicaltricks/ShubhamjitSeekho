@@ -115,8 +115,7 @@ class AnimeRepositoryImpl(
     }
 
     private fun shouldRefreshCache(isEmpty: Boolean): Boolean {
-        if (isEmpty) return true
-        return false
+        return isEmpty
     }
     
     private suspend fun shouldRefreshDetail(id: Int): Boolean {
