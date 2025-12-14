@@ -67,7 +67,7 @@ class AnimeRepositoryImpl(
             Log.d(TAG, "Fetching top anime from API...")
             
             val response = api.getTopAnime(page = 1, limit = 25)
-            
+
             val entities = response.data.map { dto ->
                 AnimeEntity.fromListDto(
                     id = dto.malId,
@@ -79,6 +79,7 @@ class AnimeRepositoryImpl(
             }
             
             dao.insertAnimeList(entities)
+
             Log.d(TAG, "Cached ${entities.size} anime")
             
         } catch (e: Exception) {
