@@ -21,7 +21,6 @@ class AnimeRepositoryImpl(
     
     companion object {
         private const val TAG = "AnimeRepository"
-        private const val CACHE_TIMEOUT = 3600000L
     }
     
     override fun getTopAnime(): Flow<List<Anime>> = flow {
