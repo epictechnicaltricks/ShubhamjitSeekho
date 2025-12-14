@@ -1,4 +1,3 @@
-// 📁 app/src/main/java/com/shubhamjitseekho/data/remote/dto/AnimeDetailDto.kt
 package com.shubhamjitseekho.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
@@ -48,11 +47,7 @@ data class GenreDto(
 data class TrailerDto(
     @SerializedName("youtube_id")
     val youtubeId: String?,
-    
-    @SerializedName("url")
-    val url: String?
-) {
-    fun getEmbedUrl(): String? {
-        return youtubeId?.let { "https://www.youtube.com/embed/$it" }
-    }
-}
+
+    @SerializedName("embed_url")
+    val embed_url: String?
+)

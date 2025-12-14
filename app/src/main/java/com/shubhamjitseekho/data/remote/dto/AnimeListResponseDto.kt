@@ -1,4 +1,3 @@
-// 📁 app/src/main/java/com/shubhamjitseekho/data/remote/dto/AnimeDto.kt
 package com.shubhamjitseekho.data.remote.dto
 
 import com.google.gson.annotations.SerializedName

@@ -40,8 +40,11 @@ class AnimeRepositoryImpl(
         dao.getAnimeById(id)
             .map { entity -> entity?.toAnimeDetail() }
             .collect { cachedDetail ->
-                emit(cachedDetail)
-                
+                if(cachedDetail!=null){
+                    emit(cachedDetail)
+                }
+
+
                 if (cachedDetail == null || shouldRefreshDetail(id)) {
                     fetchAndCacheAnimeDetail(id)
                 }
@@ -87,10 +90,10 @@ class AnimeRepositoryImpl(
     private suspend fun fetchAndCacheAnimeDetail(id: Int) {
         try {
             Log.d(TAG, "Fetching anime detail for ID: $id")
-            
+
             val response = api.getAnimeDetail(id)
             val dto = response.data
-            
+
             val entity = AnimeEntity.fromDetailDto(
                 id = dto.malId,
                 title = dto.title,
@@ -100,20 +103,20 @@ class AnimeRepositoryImpl(
                 episodes = dto.episodes,
                 score = dto.score,
                 status = dto.status,
-                trailerUrl = dto.trailer?.getEmbedUrl()
+                trailerUrl = dto.trailer?.embed_url
             )
-            
+
             dao.insertAnime(entity)
             Log.d(TAG, "Cached anime detail for: ${dto.title}")
-            
+
         } catch (e: Exception) {
             Log.e(TAG, "Error fetching anime detail", e)
         }
     }
-    
-    private suspend fun shouldRefreshCache(isEmpty: Boolean): Boolean {
+
+    private fun shouldRefreshCache(isEmpty: Boolean): Boolean {
         if (isEmpty) return true
-        return true
+        return false
     }
     
     private suspend fun shouldRefreshDetail(id: Int): Boolean {

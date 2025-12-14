@@ -15,24 +15,13 @@ object RetrofitClient {
         level = HttpLoggingInterceptor.Level.BODY
     }
     
-    private val rateLimitInterceptor = okhttp3.Interceptor { chain ->
-        val request = chain.request()
-        val response = chain.proceed(request)
-        
-        if (response.code == 429) {
-            Thread.sleep(1000)
-            return@Interceptor chain.proceed(request)
-        }
-        
-        response
-    }
+
     
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
         .writeTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
-        .addInterceptor(rateLimitInterceptor)
         .build()
     
     private val retrofit: Retrofit by lazy {

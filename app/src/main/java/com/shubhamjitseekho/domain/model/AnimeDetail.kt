@@ -1,4 +1,3 @@
-// 📁 app/src/main/java/com/shubhamjitseekho/domain/model/AnimeDetail.kt
 package com.shubhamjitseekho.domain.model
 
 data class AnimeDetail(
