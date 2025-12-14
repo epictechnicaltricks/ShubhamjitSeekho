@@ -1,4 +1,3 @@
-// 📁 app/src/main/java/com/shubhamjitseekho/data/local/dao/AnimeDao.kt
 package com.shubhamjitseekho.data.local.dao
 
 import androidx.room.Dao

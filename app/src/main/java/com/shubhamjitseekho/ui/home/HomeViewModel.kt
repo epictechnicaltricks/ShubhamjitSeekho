@@ -1,4 +1,3 @@
-// 📁 Location: app/src/main/java/com/shubhamjitseekho/ui/home/HomeViewModel.kt
 package com.shubhamjitseekho.ui.home
 
 import androidx.lifecycle.ViewModel

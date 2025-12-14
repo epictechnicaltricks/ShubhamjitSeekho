@@ -1,4 +1,3 @@
-// 📁 app/src/main/java/com/shubhamjitseekho/data/local/entity/AnimeEntity.kt
 package com.shubhamjitseekho.data.local.entity
 
 import androidx.room.Entity
